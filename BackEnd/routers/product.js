@@ -60,15 +60,15 @@ router.get("/find/:id", async(req,res)=>{
 
 //Get all user
 
-router.get("/find/",verifyTokenAndAdmin, async(req,res)=>{
+router.get("/",verifyTokenAndAdmin, async(req,res)=>{
     const qnew=req.query.new              //new is a variable in url
     const qcategories=req.query.categories
     try{ 
         let products;
         if(qnew)
-            products=await Product.find().sort({createdAt:-1}).limit(5)
+            products=await Product.find().sort({createdAt:-1}).limit(1)
         else if(qcategories){
-            products=await product.find({
+            products=await Product.find({
                 categories:{
                     $in:[qcategories]
                 },

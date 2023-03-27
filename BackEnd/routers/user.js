@@ -21,7 +21,7 @@ const router=require("express").Router();
 
 //UPDATE
 
-router.put("/update/:id",verifyTokenAndAuthorization, async(req,res)=>{
+router.put("/:id",verifyTokenAndAuthorization, async(req,res)=>{
 
      if(req.body.password){
           req.body.password=CryptoJS.AES.encrypt(req.body.password,process.env.Pass_SEC).toString();
@@ -40,7 +40,7 @@ router.put("/update/:id",verifyTokenAndAuthorization, async(req,res)=>{
 
 //Delete the login 
 
-router.delete("/delete/:id",verifyTokenAndAuthorization, async(req,res)=>{
+router.delete("/:id",verifyTokenAndAuthorization, async(req,res)=>{
 
      try{ 
           await User.findByIdAndDelete(req.params.id)
@@ -67,7 +67,7 @@ router.get("/find/:id",verifyTokenAndAdmin, async(req,res)=>{
 
 //Get all user
 
-router.get("/find/",verifyTokenAndAdmin, async(req,res)=>{
+router.get("/",verifyTokenAndAdmin, async(req,res)=>{
      const query=req.query.new              //new is a variable in url
      try{ 
          const users= query ? await User.find().sort({_id:-1}).limit(5) : await User.find()
