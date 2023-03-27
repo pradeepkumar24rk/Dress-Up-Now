@@ -60,7 +60,7 @@ router.get("/find/:userId",verifyTokenAndAuthorization, async(req,res)=>{
 
 //Get all cart
 
-router.get("/",verifyTokenAndAdmin, async(req,res)=>{
+router.get("/",verifyTokenAndAuthorization, async(req,res)=>{
     try{ 
         const Cart=  await Cart.find();
         res.status(200).json(Cart);
