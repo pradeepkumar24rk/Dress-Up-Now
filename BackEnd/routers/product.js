@@ -19,7 +19,7 @@ router.post('/',verifyTokenAndAdmin,async(req,res)=>{
 
 //UPDATE
 
-router.put("/update/:id",verifyTokenAndAdmin, async(req,res)=>{
+router.put("/:id",verifyTokenAndAdmin, async(req,res)=>{
 
     try{ 
          const updatedProduct=await Product.findByIdAndUpdate(req.params.id,{
@@ -34,7 +34,7 @@ router.put("/update/:id",verifyTokenAndAdmin, async(req,res)=>{
 
 //Delete the product 
 
-router.delete("/delete/:id",verifyTokenAndAdmin, async(req,res)=>{
+router.delete("/:id",verifyTokenAndAdmin, async(req,res)=>{
 
     try{ 
          await Product.findByIdAndDelete(req.params.id)
