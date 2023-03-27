@@ -10,6 +10,8 @@ app.use(cors());
 const userRoute=require("./routers/user");
 const authRoute=require("./routers/auth");
 const productRoute=require("./routers/product");
+const orderRoute=require("./routers/order");
+const cartRoute=require("./routers/cart");
 
 // const womenRoute=require("./routers/women");
 // const commentRoute=require("./routers/comment");
@@ -29,6 +31,8 @@ app.use(express.json());                    //we should input as json
 app.use("/api/user",userRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/product',productRoute);
+app.use('/api/order',orderRoute);
+app.use('/api/cart',cartRoute);
 
 //women
 // app.use('/api/data',womenRoute);
