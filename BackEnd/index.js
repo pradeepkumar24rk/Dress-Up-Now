@@ -12,6 +12,7 @@ const authRoute=require("./routers/auth");
 const productRoute=require("./routers/product");
 const orderRoute=require("./routers/order");
 const cartRoute=require("./routers/cart");
+const stripeRoute=require("./routers/stripe");
 
 // const womenRoute=require("./routers/women");
 // const commentRoute=require("./routers/comment");
@@ -33,6 +34,7 @@ app.use('/api/auth',authRoute);
 app.use('/api/product',productRoute);
 app.use('/api/order',orderRoute);
 app.use('/api/cart',cartRoute);
+app.use('/api/checkout',stripeRoute);
 
 //women
 // app.use('/api/data',womenRoute);
