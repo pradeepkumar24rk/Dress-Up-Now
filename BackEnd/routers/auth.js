@@ -9,7 +9,7 @@ router.post('/register',async(req,res)=>{
     const newUser=new User({
         username:req.body.username,
         email:req.body.email,
-        password:CryptoJS.AES.encrypt(req.body.password,process.env.Pass_SEC).toString(),                //PASS_SEC --> is key that help to encode and decode the password
+        password:CryptoJS.AES.encrypt(req.body.password,process.env.PASS_SEC).toString(),                //PASS_SEC --> is key that help to encode and decode the password
     });
 
     try{                                                  //Why we are using try catch because when we try to save the document (or record) in db some time the server goesdown so we r using try catch 
